@@ -292,6 +292,7 @@ export default function Home() {
         <div className='flex justify-between mt-4'>
           <Button
             onClick={handlePrevious}
+            disabled={currentQuestionIndex <= 0}
             variant='outline'
           >
             <ArrowLeft />
@@ -304,7 +305,10 @@ export default function Home() {
             <RefreshCcw />
             Aleatorio
           </Button>
-          <Button onClick={handleNext}>
+          <Button
+            onClick={handleNext}
+            disabled={currentQuestionIndex >= questions.length - 1}
+          >
             Siguiente
             <ArrowRight />
           </Button>
@@ -318,7 +322,7 @@ export default function Home() {
         title='Buy me a coffee'
         className='h-8 flex items-center justify-center gap-2'
       >
-        <Coffee className='w-5 h-5 mx-auto text-muted-foreground' />
+        <Coffee className='w-4 h-4 mx-auto text-muted-foreground' />
         <span className='text-muted-foreground text-xs text-center'>
           Buy me a coffee
         </span>
