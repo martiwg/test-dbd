@@ -129,12 +129,14 @@ export default function Home() {
       q => q.pregunta === question.pregunta,
     )
 
-    setErrorQuestionIndices(
-      errorQuestionIndices.filter(index => index !== currentIndex),
+    const tempErrorQuestionIndices = errorQuestionIndices.filter(
+      index => index !== currentIndex,
     )
 
+    setErrorQuestionIndices(tempErrorQuestionIndices)
+
     setQuestions(
-      PREGUNTES.filter((_, index) => errorQuestionIndices.includes(index)),
+      PREGUNTES.filter((_, index) => tempErrorQuestionIndices.includes(index)),
     )
 
     setSelectedAnswer(null)
