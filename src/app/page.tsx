@@ -133,6 +133,8 @@ export default function Home() {
     )
 
     setQuestions(questions.filter((_, index) => index !== currentIndex))
+
+    setSelectedAnswer(null)
   }
 
   const handleSelectAnswer = (index: number) => {
