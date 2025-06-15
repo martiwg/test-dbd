@@ -10,6 +10,7 @@ import {
   ArrowLeft,
   ArrowRight,
   Bookmark,
+  CheckSquare,
   Github,
   RefreshCcw,
 } from 'lucide-react'
@@ -120,6 +121,18 @@ export default function Home() {
     }
   }
 
+  const handleRemoveError = () => {
+    const question = questions[currentQuestionIndex]
+
+    const currentIndex = questions.findIndex(
+      q => q.pregunta === question.pregunta,
+    )
+
+    setErrorQuestionIndices(
+      errorQuestionIndices.filter(index => index !== currentIndex),
+    )
+  }
+
   const handleSelectAnswer = (index: number) => {
     setSelectedAnswer(index)
 
@@ -220,11 +233,21 @@ export default function Home() {
             <span className='text-muted-foreground'>/</span>
             <span className='text-muted-foreground'>{questions.length}</span>
           </div>
-          <div onClick={handleToggleBookmark}>
-            <Bookmark
-              className='w-5 h-5'
-              fill={isQuestionBookmarked() ? 'currentColor' : 'none'}
-            />
+          <div className='flex gap-2'>
+            <div onClick={handleToggleBookmark}>
+              <Bookmark
+                className='w-5 h-5'
+                fill={isQuestionBookmarked() ? 'currentColor' : 'none'}
+              />
+            </div>
+            {viewMode === 'errors' && (
+              <div>
+                <CheckSquare
+                  className='w-5 h-5'
+                  onClick={handleRemoveError}
+                />
+              </div>
+            )}
           </div>
         </div>
         {currentQuestionIndex < questions.length && (
