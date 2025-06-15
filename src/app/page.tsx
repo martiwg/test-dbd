@@ -6,7 +6,14 @@ import { Button } from '@/components/ui/button'
 import { NumericInput } from '@/components/ui/numeric-input'
 import { PREGUNTES } from '@/lib/preguntes'
 import { Pregunta } from '@/lib/types'
-import { ArrowLeft, ArrowRight, Bookmark, RefreshCcw } from 'lucide-react'
+import {
+  ArrowLeft,
+  ArrowRight,
+  Bookmark,
+  Github,
+  RefreshCcw,
+} from 'lucide-react'
+import Link from 'next/link'
 
 export default function Home() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
@@ -185,11 +192,16 @@ export default function Home() {
       <div className='w-full sm:w-[500px] flex flex-col gap-4'>
         <div className='flex gap-2 justify-between items-center'>
           <div className='flex gap-2'>
-            <div
+            <Link
+              href={'https://github.com/martiwg/test-dbd'}
+              target='_blank'
+              rel='noopener noreferrer'
+              aria-label='GitHub repository'
+              title='GitHub repository'
               className={`hover:text-foreground cursor-pointer transition-colors text-sm`}
             >
-              DBD
-            </div>
+              <Github className='w-5 h-5' />
+            </Link>
           </div>
           <div className='flex gap-2 justify-center items-center mb-1'>
             <NumericInput
