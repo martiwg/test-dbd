@@ -242,7 +242,7 @@ export default function Home() {
             <span className='text-muted-foreground'>/</span>
             <span className='text-muted-foreground'>{questions.length}</span>
           </div>
-          <div className='flex gap-2'>
+          <div className='flex gap-4'>
             <div onClick={handleToggleBookmark}>
               <Bookmark
                 className='w-5 h-5'
