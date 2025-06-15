@@ -145,7 +145,10 @@ export default function Home() {
   const handleSelectAnswer = (index: number) => {
     setSelectedAnswer(index)
 
-    if (index !== questions[currentQuestionIndex].correcta) {
+    if (
+      index !== questions[currentQuestionIndex].correcta &&
+      viewMode !== 'errors'
+    ) {
       setErrorQuestionIndices(
         Array.from(new Set([...errorQuestionIndices, currentQuestionIndex])),
       )
