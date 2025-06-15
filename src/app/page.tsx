@@ -106,7 +106,7 @@ export default function Home() {
   const handleToggleBookmark = () => {
     const question = questions[currentQuestionIndex]
 
-    const currentIndex = questions.findIndex(
+    const currentIndex = PREGUNTES.findIndex(
       q => q.pregunta === question.pregunta,
     )
 
@@ -119,12 +119,18 @@ export default function Home() {
         Array.from(new Set([...bookmarkedQuestionIndices, currentIndex])),
       )
     }
+
+    setQuestions(
+      PREGUNTES.filter((_, index) => bookmarkedQuestionIndices.includes(index)),
+    )
+
+    setSelectedAnswer(null)
   }
 
-  const handleRemoveError = () => {
+  const handleRemoveErrorQuestion = () => {
     const question = questions[currentQuestionIndex]
 
-    const currentIndex = questions.findIndex(
+    const currentIndex = PREGUNTES.findIndex(
       q => q.pregunta === question.pregunta,
     )
 
@@ -132,7 +138,9 @@ export default function Home() {
       errorQuestionIndices.filter(index => index !== currentIndex),
     )
 
-    setQuestions(questions.filter((_, index) => index !== currentIndex))
+    setQuestions(
+      PREGUNTES.filter((_, index) => errorQuestionIndices.includes(index)),
+    )
 
     setSelectedAnswer(null)
   }
@@ -248,7 +256,7 @@ export default function Home() {
               <div>
                 <CheckSquare
                   className='w-5 h-5'
-                  onClick={handleRemoveError}
+                  onClick={handleRemoveErrorQuestion}
                 />
               </div>
             )}
