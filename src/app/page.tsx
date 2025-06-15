@@ -238,7 +238,7 @@ export default function Home() {
                   }}
                 >
                   <div>
-                    {['A', 'B', 'C', 'D'][index]}
+                    {['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'][index]}
                     {')'}
                   </div>
                   <div>{answer}</div>
