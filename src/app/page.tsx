@@ -11,6 +11,7 @@ import {
   ArrowRight,
   Bookmark,
   CheckSquare,
+  Coffee,
   Github,
   RefreshCcw,
 } from 'lucide-react'
@@ -119,12 +120,6 @@ export default function Home() {
         Array.from(new Set([...bookmarkedQuestionIndices, currentIndex])),
       )
     }
-
-    setQuestions(
-      PREGUNTES.filter((_, index) => bookmarkedQuestionIndices.includes(index)),
-    )
-
-    setSelectedAnswer(null)
   }
 
   const handleRemoveErrorQuestion = () => {
@@ -315,7 +310,19 @@ export default function Home() {
           </Button>
         </div>
       </div>
-      <div className='h-8'></div>
+      <Link
+        href={'https://www.buymeacoffee.com/martiwg'}
+        target='_blank'
+        rel='noopener noreferrer'
+        aria-label='Buy me a coffee'
+        title='Buy me a coffee'
+        className='h-8 flex items-center justify-center gap-2'
+      >
+        <Coffee className='w-5 h-5 mx-auto text-muted-foreground' />
+        <span className='text-muted-foreground text-xs text-center'>
+          Buy me a coffee
+        </span>
+      </Link>
     </main>
   )
 }
