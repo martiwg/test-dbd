@@ -131,6 +131,8 @@ export default function Home() {
     setErrorQuestionIndices(
       errorQuestionIndices.filter(index => index !== currentIndex),
     )
+
+    setQuestions(questions.filter((_, index) => index !== currentIndex))
   }
 
   const handleSelectAnswer = (index: number) => {
