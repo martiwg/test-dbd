@@ -147,7 +147,7 @@ export default function Home() {
 
     if (
       index !== questions[currentQuestionIndex].correcta &&
-      viewMode !== 'errors'
+      viewMode === 'default'
     ) {
       setErrorQuestionIndices(
         Array.from(new Set([...errorQuestionIndices, currentQuestionIndex])),
@@ -320,7 +320,7 @@ export default function Home() {
         </div>
       </div>
       <Link
-        href={'https://www.buymeacoffee.com/martiwg'}
+        href={'https://coff.ee/martiwg'}
         target='_blank'
         rel='noopener noreferrer'
         aria-label='Buy me a coffee'
